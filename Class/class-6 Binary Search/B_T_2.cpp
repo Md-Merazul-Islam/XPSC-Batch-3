@@ -15,7 +15,7 @@ int main() {
         cin >> x;
         int left = -1, right = -1;
 
-        // for left value
+        // for right value
         int l = 0, r = n - 1;
         while (l <= r) {
             int mid = l + (r - l) / 2;
@@ -27,7 +27,7 @@ int main() {
             }
         }
 
-        // for right value
+        // for left value
         l = 0;
         r = n - 1;
         while (l <= r) {
