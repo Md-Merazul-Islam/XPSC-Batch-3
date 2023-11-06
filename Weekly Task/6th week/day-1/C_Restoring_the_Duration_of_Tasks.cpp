@@ -1,5 +1,6 @@
 /**************بسم الله الرحمن الرحيم*************
 ***********************❀‿❀************************/
+
 #include <bits/stdc++.h>
 #define ll long long
 #define dd double
@@ -14,39 +15,36 @@ void mdmerazulislam()
 {
     int n;
     cin >> n;
-    vector<int> a(n);
+    vector<int> a(n), b(n);
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
-    sort(a.begin(), a.end());
-    int l = 0, r = INT_MAX;
-    ll ans = 0;
-    while (l <= r)
+    
+    for (int i = 0; i < n; i++)
     {
-        int mid = l + (r - l) / 2;
-
-        int last = 0, cnt = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (a[i] - a[last] <= (2 * mid))
-                continue;
-            last = i;
-            cnt++;
-        }
-        if (cnt < 3)
-        {
-            ans = mid;
-            r = mid - 1;
-        }
-        else
-        {
-            l = mid + 1;
-        }
+        cin >> b[i];
+       
     }
 
-    // Output the result
-    cout << ans << endl;
+    int head =0;
+    vector<int>v;
+    for (int i = 0; i < n; i++)
+    {
+        if(a[i]>=head)
+        {
+            v.pb(abs(a[i]-b[i]));
+        }else{
+            v.pb(abs(b[i]-head));
+        }
+        head=b[i];
+    }
+
+    for (int val : v)
+    {
+        cout << val << " ";
+    }
+    cout << endl;
 }
 
 int main()
@@ -57,9 +55,7 @@ int main()
     int t;
     cin >> t;
     while (t--)
-    {
         mdmerazulislam();
-    }
 
     return 0;
 }
