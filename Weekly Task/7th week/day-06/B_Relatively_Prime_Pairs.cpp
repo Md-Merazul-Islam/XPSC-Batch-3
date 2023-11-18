@@ -15,17 +15,23 @@ using namespace std;
 #define all(v) v.begin(), v.end()
 #define nl "\n"
 #define fast ios_base::sync_with_stdio(false), cin.tie(NULL);
-void solve()
+
+void mdmerazulislam()
 {
     ll l, r;
     cin >> l >> r;
-    cout << "YES\n";
+    cout << "YES" << endl;
     for (ll i = l; i <= r; i += 2)
+    {
         cout << i << " " << i + 1 << nl;
+    }
 }
 
 int main()
 {
     fast;
-    solve();
+
+    mdmerazulislam();
+
+    return 0;
 }
