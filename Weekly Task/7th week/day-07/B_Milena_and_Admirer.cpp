@@ -1,3 +1,4 @@
+
 /**************بسم الله الرحمن الرحيم*************
 ***********************❀‿❀************************/
 
@@ -18,38 +19,38 @@ using namespace std;
 #define all(v) v.begin(), v.end()
 #define nl "\n"
 #define fast ios_base::sync_with_stdio(false), cin.tie(NULL);
-
-void mdmerazulislam()
-{
-}
+using namespace std;
 
 int main()
 {
-    fast;
+    int t;
+    cin >> t;
 
-    ll n, b;
-    cin >> n >> b;
-    set<ll> set;
-    ll x, y;
-    for (ll i = 1; i * i <= n; i++)
+    while (t--)
     {
-        if (n % i == 0)
+        int n;
+        cin >> n;
+        vector<int> arr(n);
+        for (int i = 0; i < n; ++i)
         {
-            x = i;
-            y = n / i;
-            set.insert(x);
-            set.insert(y);
+            cin >> arr[i];
         }
+        ll mx = INT_MAX;
+
+        long long operations = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            if (arr[i] < arr[i - 1])
+            {
+                operations += (arr[i - 1] - arr[i]);
+                arr[i] = arr[i - 1];
+            }
+           
+            // mx= min(operations,mx);
+        }
+
+        cout << operations << endl;
     }
-    vector<ll> v;
-    v.assign(set.begin(), set.end());
-    if (b > v.size())
-    {
-        cout << -1 << endl;
-    }
-    else
-    {
-        cout << v[b - 1] << endl;
-    }
+
     return 0;
 }

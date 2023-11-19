@@ -21,35 +21,29 @@ using namespace std;
 
 void mdmerazulislam()
 {
+    ll n;
+    cin >> n;
+    vector<ll> a(n);
+    map<ll, ll> map;
+    ll cnt = 0, psum = 0;
+    map[0]=01;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        psum = (psum + a[i]) % n;
+        if (psum < 0)
+            psum += n;
+        cnt += map[psum];
+        map[psum]++;
+    }
+    cout << cnt << endl;
 }
 
 int main()
 {
     fast;
 
-    ll n, b;
-    cin >> n >> b;
-    set<ll> set;
-    ll x, y;
-    for (ll i = 1; i * i <= n; i++)
-    {
-        if (n % i == 0)
-        {
-            x = i;
-            y = n / i;
-            set.insert(x);
-            set.insert(y);
-        }
-    }
-    vector<ll> v;
-    v.assign(set.begin(), set.end());
-    if (b > v.size())
-    {
-        cout << -1 << endl;
-    }
-    else
-    {
-        cout << v[b - 1] << endl;
-    }
+    mdmerazulislam();
+
     return 0;
 }
