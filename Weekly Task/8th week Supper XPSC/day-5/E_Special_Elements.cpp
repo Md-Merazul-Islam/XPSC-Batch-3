@@ -23,9 +23,9 @@ void mdmerazulislam()
 {
     int n;
     cin >> n;
-    int a[n+4];
-    int v[n+5];
-    loop(i, 1, n+1)
+    int a[8000+4];
+    vector<int>v(8000+2,0);
+    loop(i, 0, n)
     {
         cin >> a[i];
     }
