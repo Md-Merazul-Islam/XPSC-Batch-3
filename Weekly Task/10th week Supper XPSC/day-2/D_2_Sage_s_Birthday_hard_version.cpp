@@ -19,10 +19,6 @@ using namespace std;
 #define loop(i,  b) for (int i = 0; i < (b); ++i)
 #define rloop(i, a, b) for (int i = (a); i <= (b); ++i)
 
-void mdmerazulislam()
-{
-}
-
 int main()
 {
     fast;
@@ -55,6 +51,5 @@ int main()
     {
         cout << val << " ";
     }
-
     return 0;
 }
