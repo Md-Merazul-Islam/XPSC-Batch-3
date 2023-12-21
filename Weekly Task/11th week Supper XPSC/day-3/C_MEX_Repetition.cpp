@@ -21,39 +21,37 @@ using namespace std;
 
 void mdmerazulislam()
 {
-    ll x, y;
-    cin >> x >> y;
-
-    // if (x == y)
-    //     cout << 1 << endl;
-    // // else
-    // // {
-
-    // //     for (ll i = 0; i < x; i++)
-    // //     {
-    // //         a.push_back(1);
-    // //     }
-    // //     a.push_back(-2);
-    // //     ll sum = 0;
-    // //     for (ll i = 0; i < a.size(); i++)
-    // //     {
-    // //         sum += a[i];
-    // //     }
-    // //     cout << abs(sum) << endl;
-    // // // }
-    // // int x, y;
-    // // cin >> x >> y;
-    // else{
-
-    if (x-1 <= y )
-        cout << 1 << endl;
-    else
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i)
     {
-        int tmp = x - 2 * y;
-        cout << max(2, tmp) << endl;
+        cin >> a[i]; 
     }
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i)
+    {
+        v[i] = a[i];
+    }
+    sort(v.begin(), v.end());
+    int cnt = n;
+    for (int i = 0; i < n; ++i)
+    {
+        if (v[i] != i)
+        {
+            cnt = i;
+            break;
+        }
+    }
+    a.push_back(cnt);
+    int x = n + 1;
+    int y = k % x;
+    for (int i = 0; i < n; ++i)
+    {
+        cout << a[(i + x - y) % x] << " ";
+    }
+    cout << endl;
 }
-
 
 int main()
 {
