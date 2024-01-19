@@ -33,7 +33,6 @@ void mdmerazulislam()
     {
         string row;
         cin >> row;
-
         for (int j = 0; j < 3; ++j)
         {
             a[i][j] = row[j];
