@@ -30,30 +30,17 @@ template <typename T> using my_ordered_set = tree<T, null_type, less<T>, rb_tree
 const int N = 2e5 +5;
 void hello_wrold_solve_here()
 {
-    int n;cin>>n;
-    vector<bool>prime(n+1);
-    for (int i=2; i*i<=n; i++) 
-    {
-        if(!prime[i]){
-            for (int j=i*i; j<=n; j+=i){
-                prime[j]=true;
-            }
-        }
-    }
-    for(int i=2; i<=n; i++)
-    {
-        if(!prime[i])cout<<i<<' ';
-    }
-    nl;
     
-  
+    int tk,cst;cin>>tk>>cst;
+    if(tk>=cst)cout<<1<<line;else cout<<0;
 }
 
 
 int32_t main()
 {
     fast;
-    int t=1;cin>>t;
+    int t=1;
+        //cin>>t;
     while(t--)hello_wrold_solve_here();
     return 0;
 }

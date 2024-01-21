@@ -4,8 +4,8 @@
 **             https://github.com/Md-Merazul-Islam           **
 **************************************************************/
 #include <bits/stdc++.h>
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 using namespace std;
 #define PI 3.14159265359
@@ -17,7 +17,7 @@ using namespace std;
 #define pb push_back
 #define vi vector<ll>
 #define vpi vector<pair<ll, ll>>
-#define pii pair<ll,ll> 
+#define pii pair<ll, ll>
 #define srt(a) sort(a.begin(), a.end())
 #define rsrt(a) sort(a.rbegin(), a.rend())
 #define line "\n"
@@ -25,35 +25,41 @@ using namespace std;
 #define fast ios_base::sync_with_stdio(false), cin.tie(NULL);
 #define loop(i, a, b) for (int i = (a); i < (b); ++i)
 #define rloop(i, a, b) for (int i = (a); i <= (b); ++i)
-void print (vector<ll>&a) {loop(i,0,a.size())cout<<a[i]<<' ';}
-template <typename T> using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-const int N = 2e5 +5;
+void print(vector<ll> &a) { loop(i, 0, a.size()) cout << a[i] << ' '; }
+template <typename T>
+using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 2e5 + 5;
 void hello_wrold_solve_here()
 {
-    int n;cin>>n;
-    vector<bool>prime(n+1);
-    for (int i=2; i*i<=n; i++) 
+
+    int n;
+    cin >> n;
+    vi ans[n + 1];
+    for (int i = 1; i <= n; i++)
     {
-        if(!prime[i]){
-            for (int j=i*i; j<=n; j+=i){
-                prime[j]=true;
-            }
+        for (int j = i; j <= n; j += i)
+        {
+            ans[j].push_back(i);
         }
     }
-    for(int i=2; i<=n; i++)
-    {
-        if(!prime[i])cout<<i<<' ';
-    }
-    nl;
     
-  
+    for (int i = 1; i <= n; i++)
+    {
+        cout << i << " ---> :";
+        for (auto val : ans[i])
+        {
+            cout << val << ' ';
+        }
+        nl;
+    }
 }
-
 
 int32_t main()
 {
     fast;
-    int t=1;cin>>t;
-    while(t--)hello_wrold_solve_here();
+    int t = 1;
+    // cin>>t;
+    while (t--)
+        hello_wrold_solve_here();
     return 0;
 }
