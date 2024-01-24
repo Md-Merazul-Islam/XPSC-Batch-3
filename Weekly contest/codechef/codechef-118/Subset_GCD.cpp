@@ -35,7 +35,6 @@ void hello_wrold_solve_here()
 
     int x, y;
     cin >> x >> y;
-    cin >> x >> y;
     vi ans;
     int tmp = x/y;
     for (int i = 0; i <y; i++)
