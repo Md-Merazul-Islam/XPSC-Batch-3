@@ -18,9 +18,7 @@ using namespace std;
 #define vi vector<ll>
 #define vpi vector<pair<ll, ll>>
 #define pii pair<ll,ll> 
-#define srt(a) sort(a.begin(), a.end())
 #define all(a) a.begin(), a.end()
-#define rsrt(a) sort(a.rbegin(), a.rend())
 #define rsrt(a) sort(a.rbegin(), a.rend())
 #define line "\n"
 #define nl cout << "\n"
