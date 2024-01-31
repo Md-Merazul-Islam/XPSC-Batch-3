@@ -21,7 +21,6 @@ using namespace std;
 #define srt(a) sort(a.begin(), a.end())
 #define all(a) a.begin(), a.end()
 #define rsrt(a) sort(a.rbegin(), a.rend())
-#define rsrt(a) sort(a.rbegin(), a.rend())
 #define line "\n"
 #define nl cout << "\n"
 #define fast ios_base::sync_with_stdio(false), cin.tie(NULL);
