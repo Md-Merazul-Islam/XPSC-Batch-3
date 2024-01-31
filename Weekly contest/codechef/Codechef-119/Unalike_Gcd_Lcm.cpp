@@ -31,40 +31,59 @@ void print(vector<ll> &a) { loop(i, 0, a.size()) cout << a[i] << ' '; }
 template <typename T>
 using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 const int N = 2e5 + 5;
+vector<int> pf;
 
-ll cal(ll a, ll b) { return b - a; }
-
-ll processBits(ll a, ll b, ll c, ll &cll)
+void primeFactors(int n)
 {
-    ll sum = 0;
-    for (ll i = 63; i >= 0; --i)
+    while (n % 2 == 0)
     {
-        if ((a ^ b) >> i & 1)
+        pf.push_back(2);
+        n = n / 2;
+    }
+    for (int i = 3; i <= sqrt(n); i = i + 2)
+    {
+        while (n % i == 0)
         {
-            if (sum + (1LL << i) <= c)
-            {
-                if (!(a >> i & 1))
-                {
-                    if (1LL << (i + 1) <= cll)
-                    {
-                        sum += (1LL << i), cll -= (1LL << (i + 1));
-                    }
-                }
-            }
+            pf.push_back(i);
+            n = n / i;
         }
     }
-    return cll;
+
+    if (n > 2)
+        pf.push_back(n);
 }
 
 void hello_world_solve_here()
 {
-    ll a, b, c;
-    cin >> a >> b >> c;
-    if (a > b)
-        swap(a, b);
-    ll call = cal(a, b);
-    ll ans = processBits(a, b, c, call);
-    cout << ans << line;
+    int n, q;
+    cin >> n >> q;
+    pf.clear();
+    primeFactors(n);
+    map<int, int> mp;
+    for (int i = 0; i < pf.size(); i++)
+    {
+        mp[pf[i]]++;
+    }
+    while (q--)
+    {
+        int p;
+        cin >> p;
+        int ans = 1;
+        for (auto x : mp)
+        {
+            int cnt = 1;
+            for (int i = 0; i < x.second; i++)
+            {
+                int chk = (p + 1) * i;
+                if (chk == i + x.second)
+                {
+                    cnt++;
+                }
+            }
+            ans *= cnt;
+        }
+        cout << ans << endl;
+    }
 }
 
 signed main()

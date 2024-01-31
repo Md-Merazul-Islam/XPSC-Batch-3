@@ -31,40 +31,23 @@ void print(vector<ll> &a) { loop(i, 0, a.size()) cout << a[i] << ' '; }
 template <typename T>
 using my_ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 const int N = 2e5 + 5;
-
-ll cal(ll a, ll b) { return b - a; }
-
-ll processBits(ll a, ll b, ll c, ll &cll)
-{
-    ll sum = 0;
-    for (ll i = 63; i >= 0; --i)
-    {
-        if ((a ^ b) >> i & 1)
-        {
-            if (sum + (1LL << i) <= c)
-            {
-                if (!(a >> i & 1))
-                {
-                    if (1LL << (i + 1) <= cll)
-                    {
-                        sum += (1LL << i), cll -= (1LL << (i + 1));
-                    }
-                }
-            }
-        }
-    }
-    return cll;
-}
-
 void hello_world_solve_here()
 {
-    ll a, b, c;
-    cin >> a >> b >> c;
-    if (a > b)
-        swap(a, b);
-    ll call = cal(a, b);
-    ll ans = processBits(a, b, c, call);
-    cout << ans << line;
+    int n, k;
+    cin >> n >> k;
+    vi a(n);
+   vi ans;
+    loop(i, 0, n)
+    {
+        cin>>a[i];
+        if(a[i]>=k){
+            ans.pb(a[i]%k);
+        }
+    }
+    srt(ans);
+    if(ans.empty())cout<<-1<<line;
+    else cout<<ans[0]<<endl;
+    
 }
 
 signed main()
